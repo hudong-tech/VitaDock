@@ -1,0 +1,97 @@
+/* 仪表盘样式 */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.33%;
+}
+
+.dashboard-outer {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-inner {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.dashboard-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.dashboard-label {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* 圆环进度样式 */
+.dashboard-progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        transparent 0%, 
+        transparent 25%, 
+        rgba(0, 0, 0, 0.05) 25%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    z-index: 1;
+}
+
+/* 各种仪表盘圆环色彩 */
+.dashboard-goal .dashboard-outer {
+    background: linear-gradient(135deg, #42b883 0%, #2f9c6a 100%);
+}
+
+.dashboard-goal .dashboard-progress {
+    background: conic-gradient(
+        #42b883 0%, 
+        #42b883 85%, 
+        rgba(66, 184, 131, 0.2) 85%,
+        rgba(66, 184, 131, 0.2) 100%
+    );
+}
+
+.dashboard-heart .dashboard-outer {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
+}
+
+.dashboard-heart .dashboard-progress {
+    background: conic-gradient(
+        #ff6b6b 0%, 
+        #ff6b6b 64%, 
+        rgba(255, 107, 107, 0.2) 64%,
+        rgba(255, 107, 107, 0.2) 100%
+    );
+}
+
+.dashboard-stand .dashboard-outer {
+    background: linear-gradient(135deg, #48a2f0 0%, #2e86de 100%);
+}
+
+.dashboard-stand .dashboard-progress {
+    background: conic-gradient(
+        #48a2f0 0%, 
+        #48a2f0 65%, 
+        rgba(72, 162, 240, 0.2) 65%,
+        rgba(72, 162, 240, 0.2) 100%
+    );
+} 

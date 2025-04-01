@@ -1,0 +1,88 @@
+/* 港口风格头像样式 */
+.port-avatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #1a5276 0%, #2874a6 100%);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* 港口元素装饰 */
+.port-avatar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 99, 177, 0.7), transparent);
+    z-index: 1;
+}
+
+/* 港口吊车图标 */
+.port-avatar-crane {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 20px;
+    border-right: 2px solid rgba(255, 255, 255, 0.7);
+    border-top: 2px solid rgba(255, 255, 255, 0.7);
+    z-index: 2;
+}
+
+.port-avatar-crane::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: 0;
+    width: 10px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.port-avatar-crane::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 2px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 船只图标 */
+.port-avatar-ship {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    width: 20px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px 4px 1px 1px;
+    z-index: 2;
+}
+
+.port-avatar-ship::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 5px;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 头像内容 */
+.port-avatar-content {
+    position: relative;
+    z-index: 3;
+    font-size: 22px;
+    font-weight: bold;
+} 

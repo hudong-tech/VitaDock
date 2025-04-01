@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧健康港 - 设置</title>
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/iphone-status.css">
+    <link rel="stylesheet" href="../css/tabbar.css">
+    <link rel="stylesheet" href="../css/port-avatar.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100" style="width: 393px; height: 852px; overflow: hidden;">
+    <!-- iPhone 14 Pro 状态栏 -->
+    <div class="iphone-status-bar">
+        <div class="notch"></div>
+        <div class="time">12:30</div>
+        <div class="right-icons">
+            <span>5G</span>
+            <i class="ri-wifi-fill ml-2 text-gray-700"></i>
+            <div class="battery-icon inline-block">
+                <div class="battery-level"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 微信小程序顶部状态栏 -->
+    <div class="wx-status-bar">
+        <div class="flex items-center">
+            <span class="font-bold">设置</span>
+        </div>
+        <div class="flex items-center">
+            <div class="wx-more-btn"></div>
+            <div class="wx-close-btn"></div>
+        </div>
+    </div>
+
+    <!-- 页面内容区域 -->
+    <div class="content-area p-4" style="height: calc(852px - 44px - 50px - 50px);">
+        <!-- 用户信息 -->
+        <div class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <div class="flex items-center">
+                <div class="port-avatar mr-4">
+                    <div class="port-avatar-crane"></div>
+                    <div class="port-avatar-ship"></div>
+                    <div class="port-avatar-content">张</div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-700">港口调度员</h3>
+                    <p class="text-xs text-gray-500 mt-1">ID: 2024056789</p>
+                    <div class="flex items-center mt-1">
+                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">专业版用户</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设备连接状态 -->
+        <div class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="ri-bluetooth-line text-green-500"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-gray-700">智能手环</p>
+                        <p class="text-xs text-green-500">已连接 - G23健康手环</p>
+                    </div>
+                </div>
+                <a href="device-pairing.html" class="text-sm text-blue-500">
+                    重新配对
+                </a>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-100">
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">电池电量: <b class="text-gray-700">87%</b></span>
+                    <span class="text-gray-500">固件版本: <b class="text-gray-700">v2.1.4</b></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 手环设置 -->
+        <div class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <h3 class="font-bold text-gray-700 mb-3">手环设置</h3>
+            
+            <!-- 亮度调节 -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-sun-line settings-icon"></i>
+                    <span class="text-gray-700">屏幕亮度</span>
+                </div>
+                <div class="w-32">
+                    <input type="range" class="slider" min="1" max="5" value="4">
+                </div>
+            </div>
+            
+            <!-- 震动强度 -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-vibrate-line settings-icon"></i>
+                    <span class="text-gray-700">震动强度</span>
+                </div>
+                <div class="w-32">
+                    <input type="range" class="slider" min="1" max="5" value="3">
+                </div>
+            </div>
+            
+            <!-- 勿扰模式 -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-moon-line settings-icon"></i>
+                    <span class="text-gray-700">勿扰模式</span>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <!-- 表盘选择 -->
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-watch-line settings-icon"></i>
+                    <span class="text-gray-700">表盘样式</span>
+                </div>
+                <div class="flex items-center text-blue-500 text-sm">
+                    <span>港口主题</span>
+                    <i class="ri-arrow-right-s-line ml-1"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 工作环境模式 -->
+        <div class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <h3 class="font-bold text-gray-700 mb-3">工作环境模式</h3>
+            
+            <div class="flex justify-between">
+                <div class="text-center w-1/3">
+                    <div class="mode-icon mx-auto">
+                        <i class="ri-volume-up-line"></i>
+                    </div>
+                    <p class="text-xs text-gray-500">高噪音环境</p>
+                    <p class="text-xs text-gray-500 mt-1">增强震动提醒</p>
+                </div>
+                <div class="text-center w-1/3">
+                    <div class="mode-icon active mx-auto">
+                        <i class="ri-sun-line text-white"></i>
+                    </div>
+                    <p class="text-xs font-medium text-gray-700">强光环境</p>
+                    <p class="text-xs text-gray-500 mt-1">最高屏幕亮度</p>
+                </div>
+                <div class="text-center w-1/3">
+                    <div class="mode-icon mx-auto">
+                        <i class="ri-water-flash-line"></i>
+                    </div>
+                    <p class="text-xs text-gray-500">潮湿环境</p>
+                    <p class="text-xs text-gray-500 mt-1">手势灵敏度调整</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 其他设置 -->
+        <div class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-notification-line settings-icon"></i>
+                    <span class="text-gray-700">消息通知</span>
+                </div>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-heart-pulse-line settings-icon"></i>
+                    <span class="text-gray-700">健康目标设置</span>
+                </div>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-item-left">
+                    <i class="ri-lock-line settings-icon"></i>
+                    <span class="text-gray-700">隐私设置</span>
+                </div>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+            </div>
+            
+            <div class="settings-item border-0">
+                <div class="settings-item-left">
+                    <i class="ri-information-line settings-icon"></i>
+                    <span class="text-gray-700">关于我们</span>
+                </div>
+                <i class="ri-arrow-right-s-line text-gray-400"></i>
+            </div>
+        </div>
+        
+        <div class="text-center mb-4">
+            <button class="port-button w-full">同步设置到手环</button>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="tabbar">
+        <a href="home-connected.html" class="tabbar-item">
+            <i class="ri-home-4-line tabbar-icon"></i>
+            <span>首页</span>
+        </a>
+        <a href="health.html" class="tabbar-item">
+            <i class="ri-heart-pulse-line tabbar-icon"></i>
+            <span>健康</span>
+        </a>
+        <a href="points.html" class="tabbar-item">
+            <i class="ri-coin-line tabbar-icon"></i>
+            <span>积分兑换</span>
+        </a>
+        <a href="settings.html" class="tabbar-item active">
+            <i class="ri-settings-3-fill tabbar-icon"></i>
+            <span>设置</span>
+        </a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧健康港 - 原型预览</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f8fa;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #1a5276;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #566573;
+            font-size: 14px;
+            margin-top: 0;
+        }
+        
+        .prototypes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .prototype-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .device-frame {
+            width: 393px;
+            height: 852px;
+            border: 12px solid #121212;
+            border-radius: 48px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+            background: #fff;
+        }
+        
+        /* 添加iPhone 14 Pro的灵动岛样式 */
+        .device-frame:before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 126px;
+            height: 34px;
+            background-color: #121212;
+            border-radius: 20px;
+            z-index: 10;
+        }
+        
+        .prototype-name {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        
+        .prototype-description {
+            color: #666;
+            font-size: 13px;
+            text-align: center;
+            max-width: 380px;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform: scale(1);
+            transform-origin: top left;
+        }
+        
+        @media (max-width: 1350px) {
+            .prototypes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 950px) {
+            .prototypes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>智慧健康港 - 微信小程序原型</h1>
+        <p>面向港口工作人员的健康监测与运动数据分析平台</p>
+    </div>
+    
+    <div class="prototypes">
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/home-disconnected.html"></iframe>
+            </div>
+            <div class="prototype-name">首页（未连接）</div>
+            <div class="prototype-description">未连接手环时的首页</div>
+        </div>
+        
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/device-pairing.html"></iframe>
+            </div>
+            <div class="prototype-name">手环配对</div>
+            <div class="prototype-description">蓝牙搜索与手环配对流程</div>
+        </div>
+        
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/home-connected.html"></iframe>
+            </div>
+            <div class="prototype-name">首页（已连接）</div>
+            <div class="prototype-description">已连接手环后的首页</div>
+        </div>
+        
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/health.html"></iframe>
+            </div>
+            <div class="prototype-name">健康数据</div>
+            <div class="prototype-description">详细展示运动记录与健康指标</div>
+        </div>
+        
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/points.html"></iframe>
+            </div>
+            <div class="prototype-name">积分兑换</div>
+            <div class="prototype-description">积分与可兑换服务项目</div>
+        </div>
+        
+        <div class="prototype-item">
+            <div class="device-frame">
+                <iframe src="pages/settings.html"></iframe>
+            </div>
+            <div class="prototype-name">设置</div>
+            <div class="prototype-description">用户信息与手环设置</div>
+        </div>
+    </div>
+</body>
+</html> 
