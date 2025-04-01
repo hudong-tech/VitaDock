@@ -1,0 +1,77 @@
+# HBuilderX
+.hbuilderx/
+VitaDock/.hbuilderx/
+
+# 构建输出
+VitaDock/unpackage/
+VitaDock/dist/
+
+# 依赖
+VitaDock/node_modules/
+
+# 微信开发者工具
+VitaDock/miniprogram_npm/
+
+# IDE - VSCode
+.vscode/
+*.code-workspace
+
+# IDE - IntelliJ IDEA/WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Mac OS
+.DS_Store
+**/.DS_Store
+*.sublime*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# npm/yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+VitaDock/package-lock.json
+VitaDock/yarn.lock
+.yarn-integrity
+
+# 运行时临时文件
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+
+# 本地配置文件
+.env.local
+.env.*.local
+VitaDock/.env.local
+VitaDock/.env.*.local
+
+# 证书/密钥
+*.p12
+*.key
+*.pem
+
+# uni-app特有
+VitaDock/.uni-app/
+
+# 测试覆盖率报告
+VitaDock/coverage/
+
+# 编译缓存
+.eslintcache
+.cache/
+VitaDock/.eslintcache
+VitaDock/.cache/
+
+# 其他常见临时文件
+.tmp/
+.temp/
+VitaDock/.tmp/
+VitaDock/.temp/ 
