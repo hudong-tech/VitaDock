@@ -1,145 +1,157 @@
 <template>
-	<view class="container">
-		<!-- 未连接状态 -->
-		<view v-if="!isConnected" class="disconnected-view p-4">
-			<image src="/static/images/device-disconnected.png" mode="aspectFit" class="w-40 h-40 mx-auto"></image>
-			<view class="text-center mt-4 text-gray-600">
-				您尚未连接智能手环
-			</view>
-			<button class="port-button mt-6 w-full" @click="navigateToDevicePairing">
-				立即连接
-			</button>
-		</view>
-		
-		<!-- 已连接状态 -->
-		<view v-else class="connected-view p-4">
-			<!-- 健康数据卡片 -->
-			<view class="data-card">
-				<view class="flex justify-between items-center mb-3">
-					<text class="font-bold text-lg">今日活动</text>
-					<text class="text-sm text-blue-500" @click="navigateToHealth">详情 ></text>
+	<view class="bg-gray-100" style="min-height: 100vh;">
+	
+
+		<!-- 页面内容区域 -->
+		<view class="content-area p-4">
+			<!-- 连接提示区域 -->
+			<view class="bg-white rounded-xl p-5 mb-4 shadow-sm">
+				<view class="flex items-center justify-center mb-4">
+					<view class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
+						<text class="ri-bluetooth-line text-3xl text-gray-400"></text>
+					</view>
 				</view>
-				
-				<view class="flex justify-around">
-					<view class="text-center">
-						<view class="text-2xl font-semibold">{{ healthData.steps }}</view>
-						<view class="text-xs text-gray-500">步数</view>
-					</view>
-					<view class="text-center">
-						<view class="text-2xl font-semibold">{{ healthData.calories }}</view>
-						<view class="text-xs text-gray-500">卡路里</view>
-					</view>
-					<view class="text-center">
-						<view class="text-2xl font-semibold">{{ healthData.distance }}</view>
-						<view class="text-xs text-gray-500">公里</view>
-					</view>
+				<view class="text-center mb-4">
+					<text class="text-lg font-bold text-gray-700">未连接智能手环</text>
+					<text class="text-sm text-gray-500 mt-1 block">连接后可同步健康数据，管理手环设置</text>
+				</view>
+				<button class="port-button block w-full" @click="navigateToDevicePairing">立即连接手环</button>
+			</view>
+
+			<!-- 静态健康知识区 -->
+			<view class="bg-white rounded-xl p-4 mb-4 shadow-sm">
+				<text class="font-bold text-gray-700 mb-3 block">
+					<text class="ri-lightbulb-flash-line mr-1 text-yellow-500"></text>
+					港口工作健康提示
+				</text>
+				<view class="p-3 border-l-4 border-blue-500 bg-blue-50 rounded mb-3">
+					<text class="text-sm text-gray-700">炎热天气作业时，每小时至少补充300-500ml水，避免中暑风险。</text>
+				</view>
+				<view class="p-3 border-l-4 border-green-500 bg-green-50 rounded">
+					<text class="text-sm text-gray-700">长时间站立工作，每隔1小时活动5分钟，保持下肢血液循环。</text>
 				</view>
 			</view>
-			
-			<!-- 今日运动目标 -->
-			<view class="data-card mt-4">
-				<view class="flex justify-between items-center mb-3">
-					<text class="font-bold text-lg">今日目标</text>
-					<text class="text-sm text-gray-500">{{ completedGoals }}/3</text>
-				</view>
-				
-				<view class="goal-item flex items-center justify-between mb-2">
-					<view class="flex items-center">
-						<view class="goal-icon bg-blue-100 rounded-full p-2 mr-3">
-							<view class="iconfont icon-steps text-blue-500"></view>
-						</view>
-						<view>
-							<view class="text-sm">步数目标</view>
-							<view class="text-xs text-gray-500">10,000步</view>
+
+			<!-- 功能预览区 -->
+			<view class="mb-4">
+				<text class="font-bold text-gray-700 mb-3 block">功能预览</text>
+				<!-- 功能卡片1 -->
+				<view class="bg-gray-200 rounded-xl p-4 mb-3 relative opacity-80">
+					<view class="absolute inset-0 flex items-center justify-center">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm">
+							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<view class="progress-bar w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
-						<view class="h-full bg-blue-500" :style="{width: (healthData.steps / 100) + '%'}"></view>
-					</view>
-				</view>
-				
-				<view class="goal-item flex items-center justify-between mb-2">
-					<view class="flex items-center">
-						<view class="goal-icon bg-red-100 rounded-full p-2 mr-3">
-							<view class="iconfont icon-heart text-red-500"></view>
+					<text class="font-medium text-gray-400 block">今日健康概览</text>
+					<view class="flex justify-between mt-2 opacity-70">
+						<view class="text-center">
+							<text class="text-xl font-bold text-gray-400 block">0</text>
+							<text class="text-xs text-gray-500">步数</text>
 						</view>
-						<view>
-							<view class="text-sm">活动时间</view>
-							<view class="text-xs text-gray-500">30分钟</view>
+						<view class="text-center">
+							<text class="text-xl font-bold text-gray-400 block">0</text>
+							<text class="text-xs text-gray-500">卡路里</text>
 						</view>
-					</view>
-					<view class="progress-bar w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
-						<view class="h-full bg-red-500" :style="{width: (healthData.activityMinutes / 30 * 100) + '%'}"></view>
+						<view class="text-center">
+							<text class="text-xl font-bold text-gray-400 block">0</text>
+							<text class="text-xs text-gray-500">活动分钟</text>
+						</view>
 					</view>
 				</view>
 				
-				<view class="goal-item flex items-center justify-between">
-					<view class="flex items-center">
-						<view class="goal-icon bg-green-100 rounded-full p-2 mr-3">
-							<view class="iconfont icon-energy text-green-500"></view>
-						</view>
-						<view>
-							<view class="text-sm">消耗热量</view>
-							<view class="text-xs text-gray-500">300卡路里</view>
+				<!-- 功能卡片2 -->
+				<view class="bg-gray-200 rounded-xl p-4 relative opacity-80">
+					<view class="absolute inset-0 flex items-center justify-center">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm">
+							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<view class="progress-bar w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
-						<view class="h-full bg-green-500" :style="{width: (healthData.calories / 3) + '%'}"></view>
+					<text class="font-medium text-gray-400 block">工作模式</text>
+					<view class="flex justify-between mt-3 opacity-70">
+						<view class="text-center">
+							<view class="mode-icon">
+								<text class="ri-volume-up-line"></text>
+							</view>
+							<text class="text-xs text-gray-500">高噪音</text>
+						</view>
+						<view class="text-center">
+							<view class="mode-icon">
+								<text class="ri-sun-line"></text>
+							</view>
+							<text class="text-xs text-gray-500">强光</text>
+						</view>
+						<view class="text-center">
+							<view class="mode-icon">
+								<text class="ri-water-flash-line"></text>
+							</view>
+							<text class="text-xs text-gray-500">潮湿</text>
+						</view>
 					</view>
 				</view>
 			</view>
-			
-			<!-- 设备信息 -->
-			<view class="data-card mt-4">
-				<view class="flex justify-between items-center mb-3">
-					<text class="font-bold text-lg">设备信息</text>
-					<text class="text-sm text-blue-500">设置 ></text>
+
+			<!-- 使用引导区 -->
+			<view class="bg-white rounded-xl p-4 shadow-sm mb-4">
+				<text class="font-bold text-gray-700 mb-3 block">
+					<text class="ri-guide-line mr-1 text-blue-500"></text>
+					如何使用智慧健康港
+				</text>
+				<view class="flex items-center mb-2">
+					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
+						<text>1</text>
+					</view>
+					<text class="text-sm text-gray-600">连接您的智能手环</text>
 				</view>
-				
+				<view class="flex items-center mb-2">
+					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
+						<text>2</text>
+					</view>
+					<text class="text-sm text-gray-600">实时监测您的健康数据</text>
+				</view>
 				<view class="flex items-center">
-					<image src="/static/images/device-band.png" mode="aspectFit" class="w-16 h-16"></image>
-					<view class="ml-4">
-						<view class="text-md font-medium">{{ deviceInfo.name }}</view>
-						<view class="text-xs text-gray-500 mt-1">电量：{{ deviceInfo.battery }}%</view>
-						<view class="text-xs text-gray-500">固件版本：{{ deviceInfo.firmware }}</view>
+					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
+						<text>3</text>
 					</view>
+					<text class="text-sm text-gray-600">获取积分兑换健康服务</text>
 				</view>
+			</view>
+		</view>
+
+		<!-- 底部导航栏 -->
+		<view class="tabbar">
+			<view class="tabbar-item active">
+				<text class="ri-home-4-fill tabbar-icon"></text>
+				<text>首页</text>
+			</view>
+			<view class="tabbar-item disabled" @click="navigateToHealth">
+				<text class="ri-heart-pulse-line tabbar-icon"></text>
+				<text>健康</text>
+			</view>
+			<view class="tabbar-item disabled" @click="navigateToPoints">
+				<text class="ri-coin-line tabbar-icon"></text>
+				<text>积分兑换</text>
+			</view>
+			<view class="tabbar-item" @click="navigateToSettings">
+				<text class="ri-settings-3-line tabbar-icon"></text>
+				<text>设置</text>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { icons } from '@/components/common'
+	
 	export default {
 		data() {
 			return {
-				isConnected: false,
-				healthData: {
-					steps: 8734,
-					calories: 347,
-					distance: 5.8,
-					activityMinutes: 42
-				},
-				deviceInfo: {
-					name: '智能手环Pro',
-					battery: 87,
-					firmware: 'v2.1.4'
-				}
-			}
-		},
-		computed: {
-			completedGoals() {
-				let count = 0;
-				if (this.healthData.steps >= 10000) count++;
-				if (this.healthData.activityMinutes >= 30) count++;
-				if (this.healthData.calories >= 300) count++;
-				return count;
+				icons
 			}
 		},
 		onLoad() {
-			// 检查是否已连接设备
-			const connected = uni.getStorageSync('deviceConnected') || false;
-			this.isConnected = connected;
+			console.log('首页加载')
+			// 记录debug信息
+			this.debugInfo()
 		},
 		methods: {
 			navigateToDevicePairing() {
@@ -147,41 +159,30 @@
 					url: '/pages/device-pairing/index'
 				});
 			},
+			navigateToSettings() {
+				uni.navigateTo({
+					url: '/pages/settings/index'
+				});
+			},
 			navigateToHealth() {
-				uni.switchTab({
+				uni.navigateTo({
 					url: '/pages/health/index'
 				});
+			},
+			navigateToPoints() {
+				uni.navigateTo({
+					url: '/pages/points/index'
+				});
+			},
+			// 用于调试的方法
+			debugInfo() {
+				console.log('当前页面路径:', getCurrentPages())
+				console.log('组件加载:', !!this.icons)
 			}
 		}
 	}
 </script>
 
 <style>
-	.container {
-		padding-bottom: 50px; /* 底部tabbar高度 */
-	}
-	
-	.disconnected-view {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding-top: 40%;
-	}
-	
-	.data-card {
-		background: #fff;
-		border-radius: 12px;
-		padding: 15px;
-		box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-	}
-	
-	.port-button {
-		background-color: #1a5276;
-		color: white;
-		border-radius: 8px;
-		padding: 10px 16px;
-		font-weight: bold;
-		text-align: center;
-		box-shadow: 0 3px 0 rgba(0,0,0,0.1);
-	}
+/* 页面特定样式已通过全局样式文件和Tailwind类提供 */
 </style> 

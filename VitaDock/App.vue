@@ -14,4 +14,9 @@
 
 <style>
 	/*每个页面公共css */
+	@import './styles/tailwind-base.css';
+	@import './styles/tailwind.css';
+	@import './styles/iphone-status.css';
+	@import './styles/tabbar.css';
+	@import './styles/dashboard.css';
 </style>

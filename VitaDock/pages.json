@@ -1,49 +1,41 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "智慧健康港"
+				"navigationBarTitleText": "智慧健康港",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/device-pairing/index",
 			"style": {
-				"navigationBarTitleText": "设备配对"
+				"navigationBarTitleText": "设备配对",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/health/index",
 			"style": {
-				"navigationBarTitleText": "健康数据"
+				"navigationBarTitleText": "健康数据",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/points/index",
 			"style": {
-				"navigationBarTitleText": "积分兑换"
+				"navigationBarTitleText": "积分兑换",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/settings/index",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"navigationStyle": "custom"
 			}
 		}
 	],
-	"tabBar": {
-		"color": "#999",
-		"selectedColor": "#1a5276",
-		"backgroundColor": "#fff",
-		"list": [
-			{
-				"pagePath": "pages/home/index",
-				"text": "首页"
-			},
-			{
-				"pagePath": "pages/health/index",
-				"text": "健康"
-			},
-			{
-				"pagePath": "pages/points/index",
-				"text": "积分"
-			}
-		]
-	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "智慧健康港",
