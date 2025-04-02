@@ -41,5 +41,34 @@
 		"navigationBarTitleText": "智慧健康港",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"custom": true,
+		"color": "#8e8e93",
+		"selectedColor": "#1a5276",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/health/index",
+				"text": "健康"
+			},
+			{
+				"pagePath": "pages/points/index",
+				"text": "积分"
+			},
+			{
+				"pagePath": "pages/settings/index",
+				"text": "设置"
+			}
+		]
+	},
+	"usingComponents": {
+		"icon-font": "/components/common/icon-font",
+		"custom-tab-bar": "/components/business/custom-tab-bar"
 	}
 }

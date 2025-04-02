@@ -8,7 +8,7 @@
 			<view class="bg-white rounded-xl p-5 mb-4 shadow-sm">
 				<view class="flex items-center justify-center mb-4">
 					<view class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-						<text class="ri-bluetooth-line text-3xl text-gray-400"></text>
+						<icon-font :name="icons.device.BLUETOOTH" color="#9ca3af" size="60"></icon-font>
 					</view>
 				</view>
 				<view class="text-center mb-4">
@@ -21,7 +21,7 @@
 			<!-- 静态健康知识区 -->
 			<view class="bg-white rounded-xl p-4 mb-4 shadow-sm">
 				<text class="font-bold text-gray-700 mb-3 block">
-					<text class="ri-lightbulb-flash-line mr-1 text-yellow-500"></text>
+					<icon-font :name="icons.other.LIGHTBULB" color="#f59e0b" size="32" class="mr-1"></icon-font>
 					港口工作健康提示
 				</text>
 				<view class="p-3 border-l-4 border-blue-500 bg-blue-50 rounded mb-3">
@@ -70,19 +70,19 @@
 					<view class="flex justify-between mt-3 opacity-70">
 						<view class="text-center">
 							<view class="mode-icon">
-								<text class="ri-volume-up-line"></text>
+								<icon-font :name="icons.workMode.NOISE" color="#9ca3af" size="32"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">高噪音</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<text class="ri-sun-line"></text>
+								<icon-font :name="icons.workMode.BRIGHTNESS" color="#9ca3af" size="32"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">强光</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<text class="ri-water-flash-line"></text>
+								<icon-font :name="icons.workMode.HUMIDITY" color="#9ca3af" size="32"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">潮湿</text>
 						</view>
@@ -93,7 +93,7 @@
 			<!-- 使用引导区 -->
 			<view class="bg-white rounded-xl p-4 shadow-sm mb-4">
 				<text class="font-bold text-gray-700 mb-3 block">
-					<text class="ri-guide-line mr-1 text-blue-500"></text>
+					<icon-font :name="icons.other.GUIDE" color="#3b82f6" size="32" class="mr-1"></icon-font>
 					如何使用智慧健康港
 				</text>
 				<view class="flex items-center mb-2">
@@ -118,31 +118,18 @@
 		</view>
 
 		<!-- 底部导航栏 -->
-		<view class="tabbar">
-			<view class="tabbar-item active">
-				<text class="ri-home-4-fill tabbar-icon"></text>
-				<text>首页</text>
-			</view>
-			<view class="tabbar-item disabled" @click="navigateToHealth">
-				<text class="ri-heart-pulse-line tabbar-icon"></text>
-				<text>健康</text>
-			</view>
-			<view class="tabbar-item disabled" @click="navigateToPoints">
-				<text class="ri-coin-line tabbar-icon"></text>
-				<text>积分兑换</text>
-			</view>
-			<view class="tabbar-item" @click="navigateToSettings">
-				<text class="ri-settings-3-line tabbar-icon"></text>
-				<text>设置</text>
-			</view>
-		</view>
+		<custom-tab-bar></custom-tab-bar>
 	</view>
 </template>
 
 <script>
 	import { icons } from '@/components/common'
+	import CustomTabBar from '@/components/business/CustomTabBar.vue'
 	
 	export default {
+		components: {
+			CustomTabBar
+		},
 		data() {
 			return {
 				icons

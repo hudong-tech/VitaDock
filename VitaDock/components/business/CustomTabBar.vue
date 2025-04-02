@@ -1,86 +1,81 @@
 <template>
-  <view class="tabbar">
-    <view 
-      class="tabbar-item" 
-      v-for="(item, index) in tabs" 
-      :key="index"
-      @click="switchTab(item.pagePath)"
-      :class="{ active: current === index }"
-    >
-      <icon-font :name="current === index ? item.iconActive : item.icon" :color="current === index ? activeColor : color" size="44" class="tabbar-icon"></icon-font>
-      <text class="tabbar-text">{{ item.text }}</text>
-    </view>
-  </view>
+  <div class="tabbar">
+    <div v-for="(tab, index) in tabs" :key="index" class="tabbar-item" :class="{ active: currentPath === tab.pagePath }" @click="switchTab(tab.pagePath)">
+      <img class="tabbar-icon" :src="currentPath === tab.pagePath ? tab.iconActivePath : tab.iconPath" />
+      <span>{{ tab.text }}</span>
+    </div>
+  </div>
 </template>
 
 <script>
-import { icons } from '@/components/common'
-
 export default {
   name: 'CustomTabBar',
   data() {
     return {
-      current: 0, // 当前选中的tab索引
-      color: '#999', // 默认颜色
-      activeColor: '#1a5276', // 选中颜色
+      currentPath: '/pages/home/index',
       tabs: [
         {
           pagePath: '/pages/home/index',
-          text: '首页',
-          icon: icons.nav.HOME_OUTLINE,
-          iconActive: icons.nav.HOME
+          iconPath: '/static/icons/tabbar/home.svg',
+          iconActivePath: '/static/icons/tabbar/home-active.svg',
+          text: '首页'
         },
         {
           pagePath: '/pages/health/index',
-          text: '健康',
-          icon: icons.health.PULSE,
-          iconActive: icons.health.PULSE
+          iconPath: '/static/icons/tabbar/health.svg',
+          iconActivePath: '/static/icons/tabbar/health-active.svg',
+          text: '健康'
         },
         {
           pagePath: '/pages/points/index',
-          text: '积分',
-          icon: icons.nav.POINTS,
-          iconActive: icons.nav.POINTS_FILL
+          iconPath: '/static/icons/tabbar/points.svg',
+          iconActivePath: '/static/icons/tabbar/point-active.svg',
+          text: '积分'
         },
         {
           pagePath: '/pages/settings/index',
-          text: '设置',
-          icon: icons.nav.SETTINGS,
-          iconActive: icons.nav.SETTINGS_FILL
+          iconPath: '/static/icons/tabbar/settings.svg',
+          iconActivePath: '/static/icons/tabbar/settings-active.svg',
+          text: '设置'
         }
       ]
     }
   },
-  created() {
-    // 获取当前页面路径，设置当前选中tab
-    const pages = getCurrentPages();
-    const currentPage = pages[pages.length - 1];
-    const currentPath = `/${currentPage.route}`;
-    
-    this.tabs.forEach((item, index) => {
-      if (item.pagePath === currentPath) {
-        this.current = index;
-      }
-    });
-  },
   methods: {
     switchTab(path) {
-      // 切换页面
+      if (this.currentPath === path) return
+      this.currentPath = path
       uni.switchTab({
-        url: path
-      });
-      
-      // 更新当前选中索引
-      this.tabs.forEach((item, index) => {
-        if (item.pagePath === path) {
-          this.current = index;
+        url: path,
+        success: () => {
+          this.currentPath = path
         }
-      });
+      })
+    }
+  },
+  created() {
+    const pages = getCurrentPages()
+    if (pages.length) {
+      const currentPage = pages[pages.length - 1]
+      this.currentPath = '/' + currentPage.route
+    } else {
+      this.currentPath = '/pages/home/index'
     }
   }
 }
 </script>
 
 <style>
-/* 组件自定义样式可以在这里添加或覆盖通用样式 */
+@import '@/styles/tabbar.css';
+
+/* 补充tabbar.css中缺少的必要样式 */
+.tabbar {
+  padding-bottom: env(safe-area-inset-bottom); /* 支持全面屏设备 */
+}
+
+.tabbar-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 3px; /* 与tabbar.css保持一致 */
+}
 </style> 

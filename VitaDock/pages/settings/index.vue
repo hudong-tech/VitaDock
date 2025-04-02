@@ -36,7 +36,7 @@
 				<view class="flex justify-between items-center">
 					<view class="flex items-center">
 						<view class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-							<text class="ri-bluetooth-line text-green-500"></text>
+							<icon-font :name="icons.device.BLUETOOTH" color="#10b981" size="40"></icon-font>
 						</view>
 						<view>
 							<text class="font-medium text-gray-700 block">智能手环</text>
@@ -62,7 +62,7 @@
 				<!-- 亮度调节 -->
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-sun-line settings-icon"></text>
+						<icon-font :name="icons.workMode.BRIGHTNESS" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">屏幕亮度</text>
 					</view>
 					<view class="w-32">
@@ -73,7 +73,7 @@
 				<!-- 震动强度 -->
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-vibrate-line settings-icon"></text>
+						<icon-font :name="'vibrate-line'" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">震动强度</text>
 					</view>
 					<view class="w-32">
@@ -84,7 +84,7 @@
 				<!-- 勿扰模式 -->
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-moon-line settings-icon"></text>
+						<icon-font :name="'moon-line'" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">勿扰模式</text>
 					</view>
 					<view class="toggle">
@@ -95,12 +95,12 @@
 				<!-- 表盘选择 -->
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-watch-line settings-icon"></text>
+						<icon-font :name="icons.device.WATCH" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">表盘样式</text>
 					</view>
 					<view class="flex items-center text-blue-500 text-sm">
 						<text>港口主题</text>
-						<text class="ri-arrow-right-s-line ml-1"></text>
+						<icon-font :name="icons.other.ARROW_RIGHT" color="#3b82f6" size="28"></icon-font>
 					</view>
 				</view>
 			</view>
@@ -112,21 +112,21 @@
 				<view class="flex justify-between">
 					<view class="text-center w-1/3">
 						<view class="mode-icon mx-auto">
-							<text class="ri-volume-up-line"></text>
+							<icon-font :name="icons.workMode.NOISE" color="#9ca3af" size="32"></icon-font>
 						</view>
 						<text class="text-xs text-gray-500 block">高噪音环境</text>
 						<text class="text-xs text-gray-500 mt-1 block">增强震动提醒</text>
 					</view>
 					<view class="text-center w-1/3">
 						<view class="mode-icon active mx-auto">
-							<text class="ri-sun-line text-white"></text>
+							<icon-font :name="icons.workMode.BRIGHTNESS" color="#ffffff" size="32"></icon-font>
 						</view>
 						<text class="text-xs font-medium text-gray-700 block">强光环境</text>
 						<text class="text-xs text-gray-500 mt-1 block">最高屏幕亮度</text>
 					</view>
 					<view class="text-center w-1/3">
 						<view class="mode-icon mx-auto">
-							<text class="ri-water-flash-line"></text>
+							<icon-font :name="icons.workMode.HUMIDITY" color="#9ca3af" size="32"></icon-font>
 						</view>
 						<text class="text-xs text-gray-500 block">潮湿环境</text>
 						<text class="text-xs text-gray-500 mt-1 block">手势灵敏度调整</text>
@@ -138,34 +138,34 @@
 			<view class="bg-white rounded-xl p-4 mb-4 shadow-sm">
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-notification-line settings-icon"></text>
+						<icon-font :name="icons.other.NOTIFICATION" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">消息通知</text>
 					</view>
-					<text class="ri-arrow-right-s-line text-gray-400"></text>
+					<icon-font :name="icons.other.ARROW_RIGHT" color="#9ca3af" size="28"></icon-font>
 				</view>
 				
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-heart-pulse-line settings-icon"></text>
+						<icon-font :name="icons.health.PULSE" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">健康目标设置</text>
 					</view>
-					<text class="ri-arrow-right-s-line text-gray-400"></text>
+					<icon-font :name="icons.other.ARROW_RIGHT" color="#9ca3af" size="28"></icon-font>
 				</view>
 				
 				<view class="settings-item">
 					<view class="settings-item-left">
-						<text class="ri-lock-line settings-icon"></text>
+						<icon-font :name="'lock-line'" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">隐私设置</text>
 					</view>
-					<text class="ri-arrow-right-s-line text-gray-400"></text>
+					<icon-font :name="icons.other.ARROW_RIGHT" color="#9ca3af" size="28"></icon-font>
 				</view>
 				
 				<view class="settings-item border-0">
 					<view class="settings-item-left">
-						<text class="ri-information-line settings-icon"></text>
+						<icon-font :name="icons.other.INFO" color="#333" size="36" class="settings-icon"></icon-font>
 						<text class="text-gray-700">关于我们</text>
 					</view>
-					<text class="ri-arrow-right-s-line text-gray-400"></text>
+					<icon-font :name="icons.other.ARROW_RIGHT" color="#9ca3af" size="28"></icon-font>
 				</view>
 			</view>
 			
@@ -175,31 +175,18 @@
 		</view>
 
 		<!-- 底部导航栏 -->
-		<view class="tabbar">
-			<view class="tabbar-item" @click="navigateToHome">
-				<text class="ri-home-4-line tabbar-icon"></text>
-				<text>首页</text>
-			</view>
-			<view class="tabbar-item">
-				<text class="ri-heart-pulse-line tabbar-icon"></text>
-				<text>健康</text>
-			</view>
-			<view class="tabbar-item">
-				<text class="ri-coin-line tabbar-icon"></text>
-				<text>积分兑换</text>
-			</view>
-			<view class="tabbar-item active">
-				<text class="ri-settings-3-fill tabbar-icon"></text>
-				<text>设置</text>
-			</view>
-		</view>
+		<custom-tab-bar></custom-tab-bar>
 	</view>
 </template>
 
 <script>
 import { icons } from '@/components/common'
+import CustomTabBar from '@/components/business/CustomTabBar.vue'
 
 export default {
+	components: {
+		CustomTabBar
+	},
 	data() {
 		return {
 			icons

@@ -3,7 +3,7 @@
 		<!-- 微信小程序顶部状态栏 -->
 		<view class="wx-status-bar">
 			<view class="flex items-center">
-				<text class="ri-arrow-left-s-line mr-2" @click="navigateBack"></text>
+				<icon-font :name="icons.other.ARROW_LEFT" color="#333" size="36" class="mr-2" @click="navigateBack"></icon-font>
 				<text class="font-bold">设备配对</text>
 			</view>
 			<view class="flex items-center">
@@ -20,7 +20,7 @@
 				
 				<view class="flex justify-center mb-6">
 					<view class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center pulse-animation">
-						<text class="ri-bluetooth-line text-4xl text-blue-500"></text>
+						<icon-font :name="icons.device.BLUETOOTH" color="#3b82f6" size="70"></icon-font>
 					</view>
 				</view>
 				
@@ -34,7 +34,7 @@
 						<text class="text-sm text-gray-700">开启手机蓝牙</text>
 					</view>
 					<view class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-						<text class="ri-check-line text-green-500"></text>
+						<icon-font :name="icons.other.CHECK" color="#10b981" size="24"></icon-font>
 					</view>
 				</view>
 				
@@ -46,7 +46,7 @@
 						<text class="text-sm text-gray-700">搜索附近设备</text>
 					</view>
 					<view class="w-6 h-6 search-animation">
-						<text class="ri-loader-line text-blue-500"></text>
+						<icon-font :name="icons.device.LOADER" color="#3b82f6" size="24"></icon-font>
 					</view>
 				</view>
 				
@@ -58,7 +58,7 @@
 						<text class="text-sm text-gray-400">完成配对</text>
 					</view>
 					<view class="w-6 h-6">
-						<text class="ri-time-line text-gray-300"></text>
+						<icon-font :name="icons.health.TIME" color="#d1d5db" size="24"></icon-font>
 					</view>
 				</view>
 			</view>
@@ -72,7 +72,7 @@
 				
 				<view class="list-item bg-blue-50 rounded-lg border border-blue-200">
 					<view class="list-item-icon">
-						<text class="ri-watch-line text-blue-500"></text>
+						<icon-font :name="icons.device.WATCH" color="#3b82f6" size="32"></icon-font>
 					</view>
 					<view class="list-item-title">
 						<text class="font-medium text-gray-700">G23健康手环</text>
@@ -85,7 +85,7 @@
 				
 				<view class="list-item">
 					<view class="list-item-icon">
-						<text class="ri-watch-line text-gray-400"></text>
+						<icon-font :name="icons.device.WATCH" color="#9ca3af" size="32"></icon-font>
 					</view>
 					<view class="list-item-title">
 						<text class="font-medium text-gray-700">未知设备</text>
@@ -114,7 +114,7 @@
 				
 				<view class="flex mb-3">
 					<view class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-						<text class="ri-heart-pulse-line text-blue-500"></text>
+						<icon-font :name="icons.health.PULSE" color="#3b82f6" size="40"></icon-font>
 					</view>
 					<view>
 						<text class="text-sm font-medium text-gray-700">健康监测</text>
@@ -124,7 +124,7 @@
 				
 				<view class="flex mb-3">
 					<view class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
-						<text class="ri-notification-line text-green-500"></text>
+						<icon-font :name="icons.other.NOTIFICATION" color="#10b981" size="40"></icon-font>
 					</view>
 					<view>
 						<text class="text-sm font-medium text-gray-700">消息提醒</text>
@@ -134,7 +134,7 @@
 				
 				<view class="flex">
 					<view class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3">
-						<text class="ri-ship-line text-orange-500"></text>
+						<icon-font :name="icons.workMode.SHIP" color="#f97316" size="40"></icon-font>
 					</view>
 					<view>
 						<text class="text-sm font-medium text-gray-700">港口工作模式</text>

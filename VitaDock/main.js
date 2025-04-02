@@ -3,15 +3,13 @@ import App from './App'
 // 主应用
 // #ifndef VUE3
 import Vue from 'vue'
-import commonComponents from './components/common'
-
-// 引入Remix Icon图标
-import 'remixicon/fonts/remixicon.css'
-
-// 注册公共组件
-Vue.use(commonComponents)
+import CustomTabBar from './components/business/CustomTabBar.vue'
 
 Vue.config.productionTip = false
+
+// 全局注册CustomTabBar组件
+Vue.component('custom-tab-bar', CustomTabBar)
+
 App.mpType = 'app'
 const app = new Vue({
     ...App
@@ -21,13 +19,13 @@ app.$mount()
 
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
-import commonComponents from './components/common'
+import CustomTabBar from './components/business/CustomTabBar.vue'
 
 export function createApp() {
   const app = createSSRApp(App)
   
-  // 注册公共组件
-  app.use(commonComponents)
+  // 全局注册CustomTabBar组件
+  app.component('custom-tab-bar', CustomTabBar)
   
   return {
     app
