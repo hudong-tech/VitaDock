@@ -10,7 +10,7 @@
 					</view>
 				</view>
 				<view class="text-center" style="margin-bottom: 12px;">
-					<text class="text-lg font-bold text-gray-700" style="display: block; margin-bottom: 6px;">未连接智能手环</text>
+					<text class="text-lg font text-gray-700" style="display: block; margin-bottom: 6px;">未连接智能手环</text>
 					<text class="text-sm text-gray-500" style="display: block;">连接后可同步健康数据，管理手环设置</text>
 				</view>
 				<button class="block w-full" @click="navigateToDevicePairing" style="background-color: #0d4e81; color: white; border-radius: 8px; height: 44px; line-height: 44px; font-size: 16px; border: none; font-weight: bold;">立即连接手环</button>
@@ -35,89 +35,62 @@
 			</view>
 
 			<!-- 功能预览区 -->
-			<view class="mb-4">
-				<text class="font-bold text-gray-700 mb-3 block">功能预览</text>
-				<!-- 功能卡片1 -->
-				<view class="data-card bg-white mb-3 disabled-card shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-					<view class="absolute inset-0 flex items-center justify-center disabled-overlay">
-						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm connect-hint">
+			<view class="mb-8" style="margin-bottom: 32px;">
+				<h3 class="font text-gray-700 mb-3 block" style="font-size: 20px;">功能预览</h3>
+
+				
+				<!-- 功能卡片1：今日健康概览 -->
+				<view class="bg-gray-200 rounded-xl p-4 mb-3 relative" style="border-radius: 12px;">
+					<h4 class="text-gray-500 mb-2">今日健康概览</h4>
+					
+					<view class="absolute inset-0 flex items-center justify-center">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm" style="border-radius: 9999px; padding: 4px 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
 							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<text class="font-medium text-gray-700 block mb-2">今日健康概览</text>
-					<view class="flex justify-around">
-						<view class="dashboard-container dashboard-goal">
-							<view class="dashboard-outer">
-								<view class="dashboard-progress"></view>
-								<view class="dashboard-inner">
-									<text class="dashboard-value">0</text>
-									<text class="dashboard-label">步数</text>
-								</view>
-							</view>
+					
+					<view class="flex justify-between">
+						<view class="text-center">
+							<text class="text-gray-500 block" style="font-size: 20px;">0</text>
+							<text class="text-gray-500" style="font-size: 12px;">肩部活动度</text>
 						</view>
-						<view class="dashboard-container dashboard-heart">
-							<view class="dashboard-outer">
-								<view class="dashboard-progress"></view>
-								<view class="dashboard-inner">
-									<text class="dashboard-value">0</text>
-									<text class="dashboard-label">卡路里</text>
-								</view>
-							</view>
+						<view class="text-center">
+							<text class="text-gray-500 block" style="font-size: 20px;">0</text>
+							<text class="text-gray-500" style="font-size: 12px;">肩部锻炼时间</text>
 						</view>
-						<view class="dashboard-container dashboard-stand">
-							<view class="dashboard-outer">
-								<view class="dashboard-progress"></view>
-								<view class="dashboard-inner">
-									<text class="dashboard-value">0</text>
-									<text class="dashboard-label">活动分钟</text>
-								</view>
-							</view>
+						<view class="text-center">
+							<text class="text-gray-500 block" style="font-size: 20px;">0</text>
+							<text class="text-gray-500" style="font-size: 12px;">恢复程度</text>
 						</view>
 					</view>
 				</view>
 				
-				<!-- 功能卡片2 -->
-				<view class="data-card bg-white disabled-card shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-					<view class="absolute inset-0 flex items-center justify-center disabled-overlay">
-						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm connect-hint">
+				<!-- 功能卡片2：工作模式 -->
+				<view class="bg-gray-200 rounded-xl p-4 relative" style="border-radius: 12px; height: 120px;">
+					<h4 class="text-gray-500 mb-2">工作模式</h4>
+					
+					<view class="absolute inset-0 flex items-center justify-center">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm" style="border-radius: 9999px; padding: 4px 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
 							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<text class="font-medium text-gray-700 block mb-2">工作模式</text>
-					<view class="flex justify-around mt-2">
+					
+					<view class="flex justify-between mt-2">
 						<view class="text-center">
-							<view class="mode-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-									<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-									<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-								</svg>
+							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
+								<image src="/static/icons/common/volume.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">高噪音</text>
 						</view>
 						<view class="text-center">
-							<view class="mode-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<circle cx="12" cy="12" r="5"/>
-									<line x1="12" y1="1" x2="12" y2="3"/>
-									<line x1="12" y1="21" x2="12" y2="23"/>
-									<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-									<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-									<line x1="1" y1="12" x2="3" y2="12"/>
-									<line x1="21" y1="12" x2="23" y2="12"/>
-									<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-									<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-								</svg>
+							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
+								<image src="/static/icons/common/sun.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">强光</text>
 						</view>
 						<view class="text-center">
-							<view class="mode-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M8 14a6 6 0 0 0 12 0a8 8 0 0 0-12-8a8 8 0 0 0-9 8a6 6 0 0 0 9 8"/>
-									<path d="m17 4-3 3"/>
-									<path d="m14 4 3 3"/>
-								</svg>
+							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
+								<image src="/static/icons/common/water.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">潮湿</text>
 						</view>
@@ -126,32 +99,34 @@
 			</view>
 
 			<!-- 使用引导区 -->
-			<view class="data-card bg-white mb-16 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-				<view class="flex items-center mb-3">
-					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-						<circle cx="12" cy="12" r="10"/>
-						<path d="M12 16v-4M12 8h.01"/>
-					</svg>
-					<text class="font-bold text-gray-700">如何使用智慧健康港</text>
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 24px; margin-top: 16px;">
+				<view class="flex items-center" style="margin-bottom: 20px;">
+					<view style="margin-right: 10px;">
+						<image src="/static/icons/common/guide.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+					</view>
+					<text class="text-gray-700" style="font-size: 20px;">如何使用智慧健康港</text>
 				</view>
-				<view class="guide-steps">
-					<view class="flex items-center mb-3 guide-step">
-						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
-							<text>1</text>
+				
+				<view class="guide-steps-container">
+					<view class="flex items-center" style="margin-bottom: 18px;">
+						<view style="width: 30px; height: 30px; background-color: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+							<text style="color: #3b82f6; font-size: 16px;">1</text>
 						</view>
-						<text class="text-sm text-gray-600">连接您的智能手环</text>
+						<text class="text-gray-600" style="font-size: 15px;">连接您的智能手环</text>
 					</view>
-					<view class="flex items-center mb-3 guide-step">
-						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
-							<text>2</text>
+					
+					<view class="flex items-center" style="margin-bottom: 18px;">
+						<view style="width: 30px; height: 30px; background-color: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+							<text style="color: #3b82f6; font-size: 16px;">2</text>
 						</view>
-						<text class="text-sm text-gray-600">实时监测您的健康数据</text>
+						<text class="text-gray-600" style="font-size: 15px;">实时监测您的健康数据</text>
 					</view>
-					<view class="flex items-center guide-step">
-						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
-							<text>3</text>
+					
+					<view class="flex items-center">
+						<view style="width: 30px; height: 30px; background-color: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px;">
+							<text style="color: #3b82f6; font-size: 16px;">3</text>
 						</view>
-						<text class="text-sm text-gray-600">获取积分兑换健康服务</text>
+						<text class="text-gray-600" style="font-size: 15px;">获取积分兑换健康服务</text>
 					</view>
 				</view>
 			</view>
@@ -261,7 +236,7 @@
 }
 
 /* 使用引导样式 */
-.guide-steps {
+.guide-steps-container {
 	position: relative;
 }
 
@@ -276,13 +251,6 @@
 }
 
 .guide-steps:before {
-	content: '';
-	position: absolute;
-	top: 16px;
-	left: 16px;
-	width: 2px;
-	height: calc(100% - 32px);
-	background-color: #dbeafe;
-	z-index: 0;
+	display: none;
 }
 </style> 
