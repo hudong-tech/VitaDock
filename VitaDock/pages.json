@@ -4,35 +4,40 @@
 			"path": "pages/home/index",
 			"style": {
 				"navigationBarTitleText": "智慧健康港",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
 			"path": "pages/device-pairing/index",
 			"style": {
 				"navigationBarTitleText": "设备配对",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
 			"path": "pages/health/index",
 			"style": {
 				"navigationBarTitleText": "健康数据",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
 			"path": "pages/points/index",
 			"style": {
 				"navigationBarTitleText": "积分兑换",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
 			}
 		},
 		{
 			"path": "pages/settings/index",
 			"style": {
 				"navigationBarTitleText": "设置",
-				"navigationStyle": "custom"
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
 			}
 		}
 	],

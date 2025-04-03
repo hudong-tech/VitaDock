@@ -1,88 +1,113 @@
 <template>
-	<view class="bg-gray-100" style="min-height: 100vh;">
-	
-
+	<view style="background-color: #f3f4f6; min-height: 100vh;">
 		<!-- 页面内容区域 -->
 		<view class="content-area p-4">
 			<!-- 连接提示区域 -->
-			<view class="bg-white rounded-xl p-5 mb-4 shadow-sm">
+			<view class="data-card bg-white mb-4 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
 				<view class="flex items-center justify-center mb-4">
-					<view class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-						<icon-font :name="icons.device.BLUETOOTH" color="#9ca3af" size="60"></icon-font>
+					<view class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center device-icon-container">
+						<icon-font name="ri-bluetooth-line" color="#3b82f6" size="60"></icon-font>
 					</view>
 				</view>
 				<view class="text-center mb-4">
-					<text class="text-lg font-bold text-gray-700">未连接智能手环</text>
-					<text class="text-sm text-gray-500 mt-1 block">连接后可同步健康数据，管理手环设置</text>
+					<text class="text-xl font-bold text-gray-800">未连接智能手环</text>
+					<text class="text-sm text-gray-500 mt-2 block">连接后可同步健康数据，管理手环设置</text>
 				</view>
 				<button class="port-button block w-full" @click="navigateToDevicePairing">立即连接手环</button>
 			</view>
 
-			<!-- 静态健康知识区 -->
-			<view class="bg-white rounded-xl p-4 mb-4 shadow-sm">
-				<text class="font-bold text-gray-700 mb-3 block">
-					<icon-font :name="icons.other.LIGHTBULB" color="#f59e0b" size="32" class="mr-1"></icon-font>
-					港口工作健康提示
-				</text>
-				<view class="p-3 border-l-4 border-blue-500 bg-blue-50 rounded mb-3">
-					<text class="text-sm text-gray-700">炎热天气作业时，每小时至少补充300-500ml水，避免中暑风险。</text>
+			<!-- 健康知识区 -->
+			<view class="data-card bg-white mb-4 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+				<view class="flex items-center mb-3">
+					<icon-font name="ri-lightbulb-flash-line" color="#f59e0b" size="32" class="mr-2"></icon-font>
+					<text class="font-bold text-gray-700">港口工作健康提示</text>
 				</view>
-				<view class="p-3 border-l-4 border-green-500 bg-green-50 rounded">
-					<text class="text-sm text-gray-700">长时间站立工作，每隔1小时活动5分钟，保持下肢血液循环。</text>
-				</view>
+				
+				<swiper class="health-tips-swiper" :indicator-dots="true" :autoplay="true" :interval="5000" indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#1a5276">
+					<swiper-item>
+						<view class="p-3 border-l-4 border-blue-500 bg-blue-50 rounded">
+							<text class="text-sm text-gray-700">炎热天气作业时，每小时至少补充300-500ml水，避免中暑风险。</text>
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="p-3 border-l-4 border-green-500 bg-green-50 rounded">
+							<text class="text-sm text-gray-700">长时间站立工作，每隔1小时活动5分钟，保持下肢血液循环。</text>
+						</view>
+					</swiper-item>
+					<swiper-item>
+						<view class="p-3 border-l-4 border-orange-500 bg-orange-50 rounded">
+							<text class="text-sm text-gray-700">正确佩戴护耳装备可降低85%的噪音伤害，保护听力健康。</text>
+						</view>
+					</swiper-item>
+				</swiper>
 			</view>
 
 			<!-- 功能预览区 -->
 			<view class="mb-4">
 				<text class="font-bold text-gray-700 mb-3 block">功能预览</text>
 				<!-- 功能卡片1 -->
-				<view class="bg-gray-200 rounded-xl p-4 mb-3 relative opacity-80">
-					<view class="absolute inset-0 flex items-center justify-center">
-						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm">
+				<view class="data-card bg-white mb-3 disabled-card shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+					<view class="absolute inset-0 flex items-center justify-center disabled-overlay">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm connect-hint">
 							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<text class="font-medium text-gray-400 block">今日健康概览</text>
-					<view class="flex justify-between mt-2 opacity-70">
-						<view class="text-center">
-							<text class="text-xl font-bold text-gray-400 block">0</text>
-							<text class="text-xs text-gray-500">步数</text>
+					<text class="font-medium text-gray-700 block mb-2">今日健康概览</text>
+					<view class="flex justify-around">
+						<view class="dashboard-container dashboard-goal">
+							<view class="dashboard-outer">
+								<view class="dashboard-progress"></view>
+								<view class="dashboard-inner">
+									<text class="dashboard-value">0</text>
+									<text class="dashboard-label">步数</text>
+								</view>
+							</view>
 						</view>
-						<view class="text-center">
-							<text class="text-xl font-bold text-gray-400 block">0</text>
-							<text class="text-xs text-gray-500">卡路里</text>
+						<view class="dashboard-container dashboard-heart">
+							<view class="dashboard-outer">
+								<view class="dashboard-progress"></view>
+								<view class="dashboard-inner">
+									<text class="dashboard-value">0</text>
+									<text class="dashboard-label">卡路里</text>
+								</view>
+							</view>
 						</view>
-						<view class="text-center">
-							<text class="text-xl font-bold text-gray-400 block">0</text>
-							<text class="text-xs text-gray-500">活动分钟</text>
+						<view class="dashboard-container dashboard-stand">
+							<view class="dashboard-outer">
+								<view class="dashboard-progress"></view>
+								<view class="dashboard-inner">
+									<text class="dashboard-value">0</text>
+									<text class="dashboard-label">活动分钟</text>
+								</view>
+							</view>
 						</view>
 					</view>
 				</view>
 				
 				<!-- 功能卡片2 -->
-				<view class="bg-gray-200 rounded-xl p-4 relative opacity-80">
-					<view class="absolute inset-0 flex items-center justify-center">
-						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm">
+				<view class="data-card bg-white disabled-card shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+					<view class="absolute inset-0 flex items-center justify-center disabled-overlay">
+						<view class="bg-white px-3 py-1 rounded-full text-xs text-gray-500 shadow-sm connect-hint">
 							<text>连接手环后可用</text>
 						</view>
 					</view>
-					<text class="font-medium text-gray-400 block">工作模式</text>
-					<view class="flex justify-between mt-3 opacity-70">
+					<text class="font-medium text-gray-700 block mb-2">工作模式</text>
+					<view class="flex justify-around mt-2">
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font :name="icons.workMode.NOISE" color="#9ca3af" size="32"></icon-font>
+								<icon-font name="ri-volume-up-line" color="#9ca3af" size="28"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">高噪音</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font :name="icons.workMode.BRIGHTNESS" color="#9ca3af" size="32"></icon-font>
+								<icon-font name="ri-sun-line" color="#9ca3af" size="28"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">强光</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font :name="icons.workMode.HUMIDITY" color="#9ca3af" size="32"></icon-font>
+								<icon-font name="ri-water-flash-line" color="#9ca3af" size="28"></icon-font>
 							</view>
 							<text class="text-xs text-gray-500">潮湿</text>
 						</view>
@@ -91,28 +116,30 @@
 			</view>
 
 			<!-- 使用引导区 -->
-			<view class="bg-white rounded-xl p-4 shadow-sm mb-4">
-				<text class="font-bold text-gray-700 mb-3 block">
-					<icon-font :name="icons.other.GUIDE" color="#3b82f6" size="32" class="mr-1"></icon-font>
-					如何使用智慧健康港
-				</text>
-				<view class="flex items-center mb-2">
-					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
-						<text>1</text>
-					</view>
-					<text class="text-sm text-gray-600">连接您的智能手环</text>
+			<view class="data-card bg-white mb-16 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+				<view class="flex items-center mb-3">
+					<icon-font name="ri-guide-line" color="#3b82f6" size="28" class="mr-2"></icon-font>
+					<text class="font-bold text-gray-700">如何使用智慧健康港</text>
 				</view>
-				<view class="flex items-center mb-2">
-					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
-						<text>2</text>
+				<view class="guide-steps">
+					<view class="flex items-center mb-3 guide-step">
+						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
+							<text>1</text>
+						</view>
+						<text class="text-sm text-gray-600">连接您的智能手环</text>
 					</view>
-					<text class="text-sm text-gray-600">实时监测您的健康数据</text>
-				</view>
-				<view class="flex items-center">
-					<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3">
-						<text>3</text>
+					<view class="flex items-center mb-3 guide-step">
+						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
+							<text>2</text>
+						</view>
+						<text class="text-sm text-gray-600">实时监测您的健康数据</text>
 					</view>
-					<text class="text-sm text-gray-600">获取积分兑换健康服务</text>
+					<view class="flex items-center guide-step">
+						<view class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 mr-3 guide-number">
+							<text>3</text>
+						</view>
+						<text class="text-sm text-gray-600">获取积分兑换健康服务</text>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -147,17 +174,17 @@
 				});
 			},
 			navigateToSettings() {
-				uni.navigateTo({
+				uni.switchTab({
 					url: '/pages/settings/index'
 				});
 			},
 			navigateToHealth() {
-				uni.navigateTo({
+				uni.switchTab({
 					url: '/pages/health/index'
 				});
 			},
 			navigateToPoints() {
-				uni.navigateTo({
+				uni.switchTab({
 					url: '/pages/points/index'
 				});
 			},
@@ -171,5 +198,78 @@
 </script>
 
 <style>
-/* 页面特定样式已通过全局样式文件和Tailwind类提供 */
+@import '@/styles/dashboard.css';
+
+/* 连接提示区域样式 */
+.device-icon-container {
+	border: 2px dashed #3b82f6;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+	}
+}
+
+/* 健康提示区域样式 */
+.health-tips-swiper {
+	height: 80px;
+}
+
+/* 功能预览区样式 */
+.disabled-card {
+	position: relative;
+	overflow: hidden;
+}
+
+.disabled-overlay {
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 10;
+}
+
+.connect-hint {
+	animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+/* 使用引导样式 */
+.guide-steps {
+	position: relative;
+}
+
+.guide-step {
+	position: relative;
+	z-index: 1;
+}
+
+.guide-number {
+	font-weight: bold;
+	border: 2px solid #dbeafe;
+}
+
+.guide-steps:before {
+	content: '';
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	width: 2px;
+	height: calc(100% - 32px);
+	background-color: #dbeafe;
+	z-index: 0;
+}
 </style> 
