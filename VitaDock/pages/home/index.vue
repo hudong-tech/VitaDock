@@ -17,31 +17,21 @@
 			</view>
 
 			<!-- 健康知识区 -->
-			<view class="data-card bg-white mb-4 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 16px;">
 				<view class="flex items-center mb-3">
-					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-						<path d="M9 21h6m-6-4h6m-6-4l6-8m-6 0l6 8M12 5V3"/>
-					</svg>
-					<text class="font-bold text-gray-700">港口工作健康提示</text>
+					<view style="color: #FF9800; margin-right: 8px;">
+						<image src="/static/icons/common/lightbulb.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+					</view>
+					<text style="font-size: 15px; color: #333; font-weight: 500;">港口工作健康提示</text>
 				</view>
 				
-				<swiper class="health-tips-swiper" :indicator-dots="true" :autoplay="true" :interval="5000" indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#1a5276">
-					<swiper-item>
-						<view class="p-3 border-l-4 border-blue-500 bg-blue-50 rounded">
-							<text class="text-sm text-gray-700">炎热天气作业时，每小时至少补充300-500ml水，避免中暑风险。</text>
-						</view>
-					</swiper-item>
-					<swiper-item>
-						<view class="p-3 border-l-4 border-green-500 bg-green-50 rounded">
-							<text class="text-sm text-gray-700">长时间站立工作，每隔1小时活动5分钟，保持下肢血液循环。</text>
-						</view>
-					</swiper-item>
-					<swiper-item>
-						<view class="p-3 border-l-4 border-orange-500 bg-orange-50 rounded">
-							<text class="text-sm text-gray-700">正确佩戴护耳装备可降低85%的噪音伤害，保护听力健康。</text>
-						</view>
-					</swiper-item>
-				</swiper>
+				<view style="margin-bottom: 10px; border-radius: 8px; overflow: hidden; background-color: #EBF5FF; border-left: 4px solid #1E88E5; padding: 12px;">
+					<text style="font-size: 14px; color: #333; line-height: 1.4;">炎热天气作业时，每小时至少补充300-500ml水，避免中暑风险。</text>
+				</view>
+				
+				<view style="border-radius: 8px; overflow: hidden; background-color: #E8F5E9; border-left: 4px solid #43A047; padding: 12px;">
+					<text style="font-size: 14px; color: #333; line-height: 1.4;">长时间站立工作，每隔1小时活动5分钟，保持下肢血液循环。</text>
+				</view>
 			</view>
 
 			<!-- 功能预览区 -->
