@@ -3,23 +3,25 @@
 		<!-- 页面内容区域 -->
 		<view class="content-area p-4">
 			<!-- 连接提示区域 -->
-			<view class="data-card bg-white mb-4 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-				<view class="flex items-center justify-center mb-4">
-					<view class="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center device-icon-container">
-						<icon-font name="ri-bluetooth-line" color="#3b82f6" size="60"></icon-font>
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
+				<view class="flex items-center justify-center" style="margin-bottom: 16px;">
+					<view class="rounded-full bg-gray-200 flex items-center justify-center" style="width: 70px; height: 70px;">
+						<image src="/static/icons/common/bluetooth.svg" style="width: 24px; height: 24px;" mode="aspectFit"></image>
 					</view>
 				</view>
-				<view class="text-center mb-4">
-					<text class="text-xl font-bold text-gray-800">未连接智能手环</text>
-					<text class="text-sm text-gray-500 mt-2 block">连接后可同步健康数据，管理手环设置</text>
+				<view class="text-center" style="margin-bottom: 12px;">
+					<text class="text-lg font-bold text-gray-700" style="display: block; margin-bottom: 6px;">未连接智能手环</text>
+					<text class="text-sm text-gray-500" style="display: block;">连接后可同步健康数据，管理手环设置</text>
 				</view>
-				<button class="port-button block w-full" @click="navigateToDevicePairing">立即连接手环</button>
+				<button class="block w-full" @click="navigateToDevicePairing" style="background-color: #0d4e81; color: white; border-radius: 8px; height: 44px; line-height: 44px; font-size: 16px; border: none; font-weight: bold;">立即连接手环</button>
 			</view>
 
 			<!-- 健康知识区 -->
 			<view class="data-card bg-white mb-4 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
 				<view class="flex items-center mb-3">
-					<icon-font name="ri-lightbulb-flash-line" color="#f59e0b" size="32" class="mr-2"></icon-font>
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+						<path d="M9 21h6m-6-4h6m-6-4l6-8m-6 0l6 8M12 5V3"/>
+					</svg>
 					<text class="font-bold text-gray-700">港口工作健康提示</text>
 				</view>
 				
@@ -95,19 +97,37 @@
 					<view class="flex justify-around mt-2">
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font name="ri-volume-up-line" color="#9ca3af" size="28"></icon-font>
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+									<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+									<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+								</svg>
 							</view>
 							<text class="text-xs text-gray-500">高噪音</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font name="ri-sun-line" color="#9ca3af" size="28"></icon-font>
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<circle cx="12" cy="12" r="5"/>
+									<line x1="12" y1="1" x2="12" y2="3"/>
+									<line x1="12" y1="21" x2="12" y2="23"/>
+									<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+									<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+									<line x1="1" y1="12" x2="3" y2="12"/>
+									<line x1="21" y1="12" x2="23" y2="12"/>
+									<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+									<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+								</svg>
 							</view>
 							<text class="text-xs text-gray-500">强光</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon">
-								<icon-font name="ri-water-flash-line" color="#9ca3af" size="28"></icon-font>
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M8 14a6 6 0 0 0 12 0a8 8 0 0 0-12-8a8 8 0 0 0-9 8a6 6 0 0 0 9 8"/>
+									<path d="m17 4-3 3"/>
+									<path d="m14 4 3 3"/>
+								</svg>
 							</view>
 							<text class="text-xs text-gray-500">潮湿</text>
 						</view>
@@ -118,7 +138,10 @@
 			<!-- 使用引导区 -->
 			<view class="data-card bg-white mb-16 shadow-sm" style="background-color: white; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
 				<view class="flex items-center mb-3">
-					<icon-font name="ri-guide-line" color="#3b82f6" size="28" class="mr-2"></icon-font>
+					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+						<circle cx="12" cy="12" r="10"/>
+						<path d="M12 16v-4M12 8h.01"/>
+					</svg>
 					<text class="font-bold text-gray-700">如何使用智慧健康港</text>
 				</view>
 				<view class="guide-steps">
@@ -150,7 +173,7 @@
 </template>
 
 <script>
-	import { icons } from '@/components/common'
+	import { icons } from '@/components/common/index/index.js'
 	import CustomTabBar from '@/components/business/CustomTabBar.vue'
 	
 	export default {
