@@ -143,12 +143,10 @@
 </template>
 
 <script>
-import { icons } from '@/components/common/index/index.js'
 
 export default {
 	data() {
 		return {
-			icons,
 			deviceList: [
 				{
 					name: 'G23健康手环',
@@ -187,7 +185,7 @@ export default {
 			uni.showToast({
 				title: '刷新设备列表中...',
 				icon: 'loading',
-				duration: 2000
+				duration: 1000
 			});
 			
 			// 模拟刷新过程
