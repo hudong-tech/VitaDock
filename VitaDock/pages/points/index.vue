@@ -82,7 +82,6 @@
 </template>
 
 <script>
-import { icons } from '@/components/common'
 import CustomTabBar from '@/components/business/CustomTabBar.vue'
 
 export default {
