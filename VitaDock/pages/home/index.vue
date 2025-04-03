@@ -6,7 +6,7 @@
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
 				<view class="flex items-center justify-center" style="margin-bottom: 16px;">
 					<view class="rounded-full bg-gray-200 flex items-center justify-center" style="width: 70px; height: 70px;">
-						<image src="/static/icons/common/bluetooth.svg" style="width: 24px; height: 24px;" mode="aspectFit"></image>
+						<image src="/static/icons/home/bluetooth.svg" style="width: 24px; height: 24px;" mode="aspectFit"></image>
 					</view>
 				</view>
 				<view class="text-center" style="margin-bottom: 12px;">
@@ -20,7 +20,7 @@
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 16px;">
 				<view class="flex items-center mb-3">
 					<view style="color: #FF9800; margin-right: 8px;">
-						<image src="/static/icons/common/lightbulb.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+						<image src="/static/icons/home/lightbulb.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 					</view>
 					<text style="font-size: 15px; color: #333; font-weight: 500;">港口工作健康提示</text>
 				</view>
@@ -78,19 +78,19 @@
 					<view class="flex justify-between mt-2">
 						<view class="text-center">
 							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
-								<image src="/static/icons/common/volume.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+								<image src="/static/icons/home/volume.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">高噪音</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
-								<image src="/static/icons/common/sun.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+								<image src="/static/icons/home/sun.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">强光</text>
 						</view>
 						<view class="text-center">
 							<view class="mode-icon flex items-center justify-center" style="height: 40px;">
-								<image src="/static/icons/common/water.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+								<image src="/static/icons/home/water.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 							</view>
 							<text class="text-xs text-gray-500">潮湿</text>
 						</view>
@@ -102,7 +102,7 @@
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 24px; margin-top: 16px;">
 				<view class="flex items-center" style="margin-bottom: 20px;">
 					<view style="margin-right: 10px;">
-						<image src="/static/icons/common/guide.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
+						<image src="/static/icons/home/guide.svg" style="width: 20px; height: 20px;" mode="aspectFit"></image>
 					</view>
 					<text class="text-gray-700" style="font-size: 20px;">如何使用智慧健康港</text>
 				</view>
@@ -138,7 +138,6 @@
 </template>
 
 <script>
-	import { icons } from '@/components/common/index/index.js'
 	import CustomTabBar from '@/components/business/CustomTabBar.vue'
 	
 	export default {
