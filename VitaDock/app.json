@@ -36,7 +36,6 @@
     ]
   },
   "usingComponents": {
-    "icon-font": "/components/common/icon-font",
     "custom-tab-bar": "/components/business/CustomTabBar"
   }
 } 

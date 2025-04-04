@@ -27,13 +27,13 @@ export const healthData = {
 
 // 每周活动记录
 export const weeklyActivity = [
-  { day: '一', date: '03-25', shoulderAngle: 65, exerciseMinutes: 30 },
-  { day: '二', date: '03-26', shoulderAngle: 68, exerciseMinutes: 35 },
-  { day: '三', date: '03-27', shoulderAngle: 70, exerciseMinutes: 40 },
-  { day: '四', date: '03-28', shoulderAngle: 72, exerciseMinutes: 38 },
-  { day: '五', date: '03-29', shoulderAngle: 75, exerciseMinutes: 45 },
-  { day: '六', date: '03-30', shoulderAngle: 76, exerciseMinutes: 40 },
-  { day: '日', date: '03-31', shoulderAngle: 78, exerciseMinutes: 42 }
+  { day: '一', date: '03-25', shoulderAngle: 30, exerciseMinutes: 30, isHighlight: false },
+  { day: '二', date: '03-26', shoulderAngle: 55, exerciseMinutes: 35, isHighlight: true },
+  { day: '三', date: '03-27', shoulderAngle: 35, exerciseMinutes: 40, isHighlight: false },
+  { day: '四', date: '03-28', shoulderAngle: 65, exerciseMinutes: 38, isHighlight: true },
+  { day: '五', date: '03-29', shoulderAngle: 60, exerciseMinutes: 45, isHighlight: true },
+  { day: '六', date: '03-30', shoulderAngle: 85, exerciseMinutes: 40, isHighlight: true },
+  { day: '日', date: '03-31', shoulderAngle: 95, exerciseMinutes: 42, isHighlight: true }
 ];
 
 // 今日运动记录
