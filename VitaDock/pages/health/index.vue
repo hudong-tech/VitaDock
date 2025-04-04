@@ -3,7 +3,7 @@
 		<view class="content-area p-4">
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px;">
 				<view style="padding: 16px 16px 16px;">
-					<view class="flex justify-between items-center mb-3">
+					<view class="flex justify-between items-center" style="margin-bottom: 16px;">
 						<h3 class="font-bold text-gray-700">本周肩部数值报告</h3>
 						<view class="flex items-center text-xs text-blue-500">
 							<text>月度报告 ></text>
@@ -51,8 +51,8 @@
 			</view>
 			
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
-				<view class="section-header">
-					<h3 class="font-bold text-gray-700 mb-3">今日运动记录</h3>
+				<view class="section-header" style="margin-bottom: 20px;">
+					<h3 class="font-bold text-gray-700">今日运动记录</h3>
 				</view>
 				
 				<!-- 运动记录时间轴 -->
@@ -83,11 +83,7 @@
 								<view v-if="exercise.type !== 'work'" style="width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-left: 8px;" :style="{ 
 									backgroundColor: exercise.type === 'shoulder' ? '#dbeafe' : '#dcfce7'
 								}">
-									<image 
-										:src="exercise.type === 'shoulder' ? '/static/icons/health/muscle.svg' : '/static/icons/health/health.svg'" 
-										style="width: 28px; height: 28px;"
-										mode="aspectFit"
-									></image>
+
 								</view>
 								
 								<!-- 为工作类型直接显示图标 -->
@@ -135,51 +131,170 @@
 			</view>
 			
 			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
-				<view class="section-header">
-					<h3 class="font-bold text-gray-700 mb-3">健康指标</h3>
+				<view class="section-header" style="margin-bottom: 20px;">
+					<h3 class="font-bold text-gray-700">健康指标</h3>
 				</view>
 				
 				<view class="health-indicators">
-					<view class="indicator-item">
-						<view class="indicator-header">
-							<view class="flex items-center">
-								<icon-font :name="icons.health.HEART" color="#ef4444" size="36"></icon-font>
-								<text class="ml-2">静息心率</text>
+					<!-- 心率指标 -->
+					<view style="margin-bottom: 24px;">
+						<view class="flex justify-between items-center mt-4 mb-4">
+							<view class="flex items-center mb-2">
+								<view style="width: 32px; height: 32px; background-color: #FEE2E2; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+									<image src="/static/icons/health/heart-pulse-red.svg" style="width: 18px; height: 18px;" mode="aspectFit"></image>
+								</view>
+								<text class="text-sm text-gray-700">静息心率</text>
 							</view>
-							<text class="indicator-value">{{ healthIndicators.heartRate.current }} {{ healthIndicators.heartRate.unit }}</text>
+							<text class="text-gray-700">{{ healthIndicators.heartRate.current }} {{ healthIndicators.heartRate.unit }}</text>
 						</view>
-						<view class="progress-bar">
-							<view class="progress" :style="{ width: healthIndicators.heartRate.progress + '%' }"></view>
+						<view style="height: 4px; background-color: #F3F4F6; border-radius: 9999px; margin-bottom: 8px;">
+							<view style="height: 4px; background-color: #F87171; border-radius: 9999px;" :style="{ width: healthIndicators.heartRate.progress + '%' }"></view>
+						</view>
+						<view class="flex justify-between">
+							<text class="text-xs text-gray-500">偏低</text>
+							<text class="text-xs text-gray-500">正常</text>
+							<text class="text-xs text-gray-500">偏高</text>
 						</view>
 					</view>
 					
-					<view class="indicator-item">
-						<view class="indicator-header">
-							<view class="flex items-center">
-								<icon-font :name="icons.health.SLEEP" color="#8b5cf6" size="36"></icon-font>
-								<text class="ml-2">昨晚睡眠</text>
+					<!-- 睡眠指标 -->
+					<view style="margin-bottom: 24px;">
+						<view class="flex justify-between items-center mb-4">
+							<view class="flex items-center mb-2">
+								<view style="width: 32px; height: 32px; background-color: #EDE9FE; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+									<image src="/static/icons/health/zzz.svg" style="width: 18px; height: 18px;" mode="aspectFit"></image>
+								</view>
+								<text class="text-sm text-gray-700">昨晚睡眠</text>
 							</view>
-							<text class="indicator-value">{{ healthIndicators.sleep.total.hours }}小时{{ healthIndicators.sleep.total.minutes }}分</text>
+							<text class="text-gray-700">{{ healthIndicators.sleep.total.hours }}小时{{ healthIndicators.sleep.total.minutes }}分</text>
 						</view>
-						<view class="sleep-phases">
-							<view class="phase deep" :style="{ width: healthIndicators.sleep.phases.deep.percent + '%' }"></view>
-							<view class="phase light" :style="{ width: healthIndicators.sleep.phases.light.percent + '%' }"></view>
-							<view class="phase rem" :style="{ width: healthIndicators.sleep.phases.rem.percent + '%' }"></view>
+						<view class="flex items-center" style="margin-bottom: 8px;">
+							<view style="height: 16px; background-color: #8B5CF6; border-top-left-radius: 9999px; border-bottom-left-radius: 9999px;" :style="{ width: healthIndicators.sleep.phases.deep.percent + '%' }"></view>
+							<view style="height: 16px; background-color: #A78BFA;" :style="{ width: healthIndicators.sleep.phases.light.percent + '%' }"></view>
+							<view style="height: 16px; background-color: #DDD6FE; border-top-right-radius: 9999px; border-bottom-right-radius: 9999px;" :style="{ width: healthIndicators.sleep.phases.rem.percent + '%' }"></view>
+						</view>
+						<view class="flex text-xs text-gray-500">
+							<view :style="{ width: healthIndicators.sleep.phases.deep.percent + '%' }">深睡 {{ healthIndicators.sleep.phases.deep.hours }}h{{ healthIndicators.sleep.phases.deep.minutes }}m</view>
+							<view :style="{ width: healthIndicators.sleep.phases.light.percent + '%' }">浅睡 {{ healthIndicators.sleep.phases.light.hours }}h{{ healthIndicators.sleep.phases.light.minutes }}m</view>
+							<view :style="{ width: healthIndicators.sleep.phases.rem.percent + '%' }">REM {{ healthIndicators.sleep.phases.rem.hours }}h{{ healthIndicators.sleep.phases.rem.minutes }}m</view>
 						</view>
 					</view>
 					
-					<view class="indicator-item">
-						<view class="indicator-header">
-							<view class="flex items-center">
-								<icon-font :name="icons.health.STRESS" color="#3b82f6" size="36"></icon-font>
-								<text class="ml-2">压力水平</text>
+					<!-- 压力水平 -->
+					<view style="margin-bottom: 24px;">
+						<view class="flex justify-between items-center mb-4">
+							<view class="flex items-center mb-2">
+								<view style="width: 32px; height: 32px; background-color: #DBEAFE; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+									<image src="/static/icons/health/mental.svg" style="width: 18px; height: 18px;" mode="aspectFit"></image>
+								</view>
+								<text class="text-sm text-gray-700">压力水平</text>
 							</view>
-							<text class="indicator-value">{{ healthIndicators.stress.level }}</text>
+							<text class="text-gray-700">{{ healthIndicators.stress.level }}</text>
 						</view>
-						<view class="progress-bar">
-							<view class="progress" :style="{ width: healthIndicators.stress.score + '%' }"></view>
+						<view style="height: 4px; background-color: #F3F4F6; border-radius: 9999px; margin-bottom: 8px;">
+							<view style="height: 4px; background-color: #60A5FA; border-radius: 9999px;" :style="{ width: healthIndicators.stress.score + '%' }"></view>
+						</view>
+						<view class="flex justify-between">
+							<text class="text-xs text-gray-500">放松</text>
+							<text class="text-xs text-gray-500">中等</text>
+							<text class="text-xs text-gray-500">紧张</text>
 						</view>
 					</view>
+					
+					<!-- 心情指数 -->
+					<view>
+						<view class="flex justify-between items-center mb-4">
+							<view class="flex items-center mb-2">
+								<view style="width: 32px; height: 32px; background-color: #FEF3C7; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+									<image src="/static/icons/health/emotion-happy.svg" style="width: 18px; height: 18px;" mode="aspectFit"></image>
+								</view>
+								<text class="text-sm text-gray-700">心情指数</text>
+							</view>
+							<text class="text-gray-700">{{ healthIndicators.mood.status }}</text>
+						</view>
+						<view style="height: 4px; background-color: #F3F4F6; border-radius: 9999px; margin-bottom: 8px;">
+							<view style="height: 4px; background-color: #FBBF24; border-radius: 9999px;" :style="{ width: healthIndicators.mood.score + '%' }"></view>
+						</view>
+						<view class="flex justify-between">
+							<text class="text-xs text-gray-500">低落</text>
+							<text class="text-xs text-gray-500">平静</text>
+							<text class="text-xs text-gray-500">愉悦</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			
+			<!-- 港口工作健康建议 -->
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
+				<view class="flex items-center" style="margin-bottom: 20px;">
+					<image src="/static/icons/health/ship.svg" style="width: 20px; height: 20px; margin-right: 6px; color: rgba(55, 65, 81, 1);" mode="aspectFit"></image>
+					<h3 class="font-bold text-gray-700">港口工作健康建议</h3>
+				</view>
+				
+				<view style="border-left: 4px solid #3b82f6; padding-left: 12px; padding-top: 8px; padding-bottom: 8px; margin-bottom: 12px;">
+					<text class="text-sm text-gray-700 font-medium block">姿势提示</text>
+					<text class="text-xs text-gray-500 block mt-1">今日检测到3次不良姿势，建议注意腰背挺直，避免长时间同一姿势。</text>
+				</view>
+				
+				<view style="border-left: 4px solid #10b981; padding-left: 12px; padding-top: 8px; padding-bottom: 8px;">
+					<text class="text-sm text-gray-700 font-medium block">恢复建议</text>
+					<text class="text-xs text-gray-500 block mt-1">下班后建议进行10-15分钟的肩颈拉伸，缓解工作带来的肌肉紧张。</text>
+				</view>
+			</view>
+			
+			<!-- 晚间饮食建议 -->
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
+				<view class="flex items-center" style="margin-bottom: 20px;">
+					<image src="/static/icons/health/restaurant.svg" style="width: 20px; height: 20px; margin-right: 6px; color: rgba(55, 65, 81, 1);" mode="aspectFit"></image>
+					<h3 class="font-bold text-gray-700">晚间饮食建议</h3>
+				</view>
+				
+				<view style="border-left: 4px solid #f59e0b; padding-left: 12px; padding-top: 8px; padding-bottom: 8px; margin-bottom: 12px;">
+					<text class="text-sm text-gray-700 font-medium block">肩部肌肉修复餐</text>
+					<text class="text-xs text-gray-500 block mt-1">工作后适量补充蛋白质，建议食用鱼肉、鸡胸肉等优质蛋白，搭配菠菜等富含镁的蔬菜，有助于肩部肌肉恢复。</text>
+				</view>
+				
+				<view style="border-left: 4px solid #14b8a6; padding-left: 12px; padding-top: 8px; padding-bottom: 8px;">
+					<text class="text-sm text-gray-700 font-medium block">注意事项</text>
+					<text class="text-xs text-gray-500 block mt-1">晚餐宜清淡，避免过度摄入高油脂食物，不建议饮用咖啡等刺激性饮料，以免影响睡眠质量。</text>
+				</view>
+			</view>
+			
+			<!-- 肩部康复训练处方 -->
+			<view class="data-card bg-white mb-4" style="background-color: white; border-radius: 12px; padding: 20px 16px;">
+				<view class="flex items-center" style="margin-bottom: 20px;">
+					<image src="/static/icons/health/heart-pulse.svg" style="width: 20px; height: 20px; margin-right: 6px; color: rgba(55, 65, 81, 1);" mode="aspectFit"></image>
+					<h3 class="font-bold text-gray-700">肩部康复训练处方</h3>
+				</view>
+				
+				<view style="background-color: #f9fafb; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+					<view class="flex items-center mb-2">
+						<view style="width: 32px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+							<text class="font-bold" style="color: #374151;">1</text>
+						</view>
+						<text class="font-medium text-gray-700">木棒肩部上举 × 3组，每组12次</text>
+					</view>
+					<text class="text-xs text-gray-500 block" style="margin-left: 40px;">双手握木棒，肩宽站立，缓慢将木棒从胸前上举过头顶，保持肩胛骨稳定。</text>
+				</view>
+				
+				<view style="background-color: #f9fafb; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+					<view class="flex items-center mb-2">
+						<view style="width: 32px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+							<text class="font-bold" style="color: #374151;">2</text>
+						</view>
+						<text class="font-medium text-gray-700">Y字伸展 × 3组，每组10次</text>
+					</view>
+					<text class="text-xs text-gray-500 block" style="margin-left: 40px;">俯卧在瑜伽垫上，双手伸直呈Y字形，缓慢上举双臂，感受肩胛骨收紧。</text>
+				</view>
+				
+				<view style="background-color: #f9fafb; border-radius: 8px; padding: 12px;">
+					<view class="flex items-center mb-2">
+						<view style="width: 32px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+							<text class="font-bold" style="color: #374151;">3</text>
+						</view>
+						<text class="font-medium text-gray-700">肩内外旋 × 3组，每组15次</text>
+					</view>
+					<text class="text-xs text-gray-500 block" style="margin-left: 40px;">侧卧，上臂与身体贴合，肘关节弯曲90度，缓慢进行肩关节内外旋活动。</text>
 				</view>
 			</view>
 		</view>
@@ -205,20 +320,7 @@ export default {
 			healthData,
 			weeklyActivity,
 			healthIndicators,
-			dailyExercises,
-			icons: {
-				health: {
-					MUSCLE: 'muscle',
-					HEALTH: 'health',
-					SHIP: 'ship',
-					HEART: 'heart',
-					SLEEP: 'sleep',
-					STRESS: 'stress'
-				},
-				other: {
-					ARROW_RIGHT: 'arrow-right'
-				}
-			}
+			dailyExercises
 		}
 	},
 	computed: {
